@@ -8,12 +8,11 @@ from django.db.models import Sum
 
 
 def manage_file(request):
-    print(request.FILES)
     file = form.FileForm(request.POST, request.FILES)
     if file.is_valid():
         model_form.data_processing(request)
         return redirect("/api/stores/")
-    return render(request,"form.html",{"form":file})
+    return render(request,"html/form.html",{"form":file})
 
 
 
@@ -45,4 +44,4 @@ def stores(request):
         store.total = store_value["total"] / 100
         store_name_value.append(store)
     
-    return render(request,"stores_list.html",{"stores":store_name_value})
+    return render(request,"html/stores_list.html",{"stores":store_name_value})
