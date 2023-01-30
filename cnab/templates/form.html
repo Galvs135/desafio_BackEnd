@@ -1,0 +1,7 @@
+<h1>Upload File</h1>
+<form action="{% url 'file' %}" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <!-- <input id="file1" type="file" /> -->
+  <p>{{form.file}}</p>
+  <input type="submit" value="Enviar" />
+</form>
