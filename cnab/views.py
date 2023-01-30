@@ -8,10 +8,11 @@ from django.db.models import Sum
 
 
 def manage_file(request):
+    print(request.FILES)
     file = form.FileForm(request.POST, request.FILES)
     if file.is_valid():
         model_form.data_processing(request)
-        # return redirect("stores/")
+        return redirect("/api/stores/")
     return render(request,"form.html",{"form":file})
 
 
@@ -38,11 +39,9 @@ def stores(request):
     for name in stores:
         if name.store not in stores_name: 
             stores_name.append(name.store)
-        
     for store_info in stores_name:
         store = CnabFile.objects.filter(store=store_info)[0]
         store_value = CnabFile.objects.filter(store=store_info).aggregate(total=Sum("value"))
-        print(store_value)
         store.total = store_value["total"] / 100
         store_name_value.append(store)
     

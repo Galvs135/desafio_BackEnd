@@ -1,7 +1,60 @@
-<h1>Upload File</h1>
-<form action="{% url 'file' %}" method="post" enctype="multipart/form-data">
-  {% csrf_token %}
-  <!-- <input id="file1" type="file" /> -->
-  <p>{{form.file}}</p>
-  <input type="submit" value="Enviar" />
-</form>
+<style>
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 99vw;
+    height: 98vh;
+  }
+  h1 {
+    font-size: 50px;
+    padding: 20px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-style: italic;
+    text-decoration: underline;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  span,
+  .btn {
+    background-color: black;
+    color: azure;
+    border-radius: 7px;
+    border: 2px solid azure;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  span {
+    background-color: black;
+    color: azure;
+    font-size: 18px;
+    padding: 15px;
+  }
+  .btn {
+    font-size: 30px;
+    font-style: italic;
+    font-weight: 900;
+    color: azure;
+    background-color: black;
+    padding: 10px;
+    width: 100%;
+  }
+  .btn:active {
+    transition: 0.5s;
+    background-color: azure;
+    color: black;
+  }
+</style>
+
+<div>
+  <h1>UPLOAD YOUR CNAB FILE</h1>
+  <form action="{% url 'file' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <!-- <input id="file" type="file" /> -->
+    <span>{{form.file}}</span>
+    <input type="submit" value="SEND" class="btn" />
+  </form>
+</div>

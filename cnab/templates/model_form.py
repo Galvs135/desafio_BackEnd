@@ -23,9 +23,11 @@ def data_processing(request):
             "cpf": separate_info[19:30],
             "credit_card": separate_info[30:42],
             "hour": separate_info[42:48],
-            "owner": separate_info[48:62].rstrip(),
-            "store": separate_info[62:80].rstrip(),
+            "owner": separate_info[48:62],
+            "store": separate_info[62:80],
         }
+        if data["type"] == "2" or data["type"] == "3" or data["type"] == "9":
+          data["value"] = "-"+data["value"]
 
         instance = models.CnabFile.objects.create(**data)
         instance.save()

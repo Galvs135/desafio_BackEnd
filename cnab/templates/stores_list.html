@@ -1,9 +1,42 @@
-<h1>STORES</h1>
-<table>
-  {% for store in stores %}
-  <tr>
-    <td>{{store.store}}</td>
-    <td>{{store.total}}</td>
-  </tr>
-  {% endfor %}
-</table>
+<style>
+  table,
+  td {
+    border: 3px solid;
+    text-align: center;
+  }
+  th {
+    font-size: 30px;
+    padding: 20px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-style: italic;
+  }
+  td {
+    font-size: 20px;
+    padding: 10px;
+    color: azure;
+    background-color: black;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 99vw;
+    height: 90vh;
+  }
+</style>
+<div>
+  <table>
+    <tr>
+      <th>STORE NAME</th>
+      <th>AMOUNT</th>
+    </tr>
+    {% for store in stores %}
+    <tr>
+      <td>{{store.store}}</td>
+      <td>{{store.total}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
