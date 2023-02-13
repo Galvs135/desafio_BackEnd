@@ -1,14 +1,5 @@
-from django import forms
-from .form import File
 from cnab import models
-
-# class InsertFile(forms.ModelForm):
-#   class Meta:
-#     model = File
-#     fields = [
-#       'file'
-#     ]
-
+from datetime import datetime
 
 def data_processing(request):
     file = request.FILES["file"]
@@ -28,6 +19,6 @@ def data_processing(request):
         }
         if data["type"] == "2" or data["type"] == "3" or data["type"] == "9":
           data["value"] = "-"+data["value"]
-
+        data["date"] = datetime.strptime(data["date"],'%Y%d%m').date()
         instance = models.CnabFile.objects.create(**data)
         instance.save()

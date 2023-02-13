@@ -14,21 +14,6 @@ def manage_file(request):
         return redirect("/api/stores/")
     return render(request,"html/form.html",{"form":file})
 
-
-
-# class manage_files(CreateView):
-#     template_name = "form.html"
-#     model = form.FileForm
-#     form_class = model_form.InsertFile
-#     success_url = reverse_lazy("file")
-
-#     def manage_file(request):
-#         file = model_form.InsertFile(request.POST, request.FILES)
-        
-#         if file.is_valid():
-#             model_form(request)
-
-
 def stores(request):
     stores = CnabFile.objects.all()
 

@@ -53,7 +53,6 @@
   <h1>UPLOAD YOUR CNAB FILE</h1>
   <form action="{% url 'file' %}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    <!-- <input id="file" type="file" /> -->
     <span>{{form.file}}</span>
     <input type="submit" value="SEND" class="btn" />
   </form>
